@@ -8,3 +8,14 @@ Android project template which follows the google-standard compliance. This andr
 These are things you have to do in order to get your project ready.
 #### Setup google-services.json
 Rename google-services.json.example to google-services.json, and then replace its content with actual json file.
+
+## Important Notes
+- Use jetpack data binding instead of kotlin synthetic.
+- Use firebase crashlytics
+- TODO: setup feature flag
+- TODO: setup deeplink
+- TODO: setup push notification
+- TODO: setup a/b test
+- TODO: setup cicd pipeline
+- TODO: setup build flavor
+- TODO: setup local database
