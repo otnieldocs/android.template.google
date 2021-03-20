@@ -1,0 +1,20 @@
+ext {
+    androidx = [
+            coreKtx: ("androidx.core:core-ktx:$androidx_corektx_version"),
+            appCompat: ("androidx.appcompat:appcompat:$androidx_appcompat_version"),
+            constraintLayout: ("androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version")
+    ]
+
+    google = [
+            material: ("com.google.android.material:material:$google_material_version"),
+            firebaseBom: ("com.google.firebase:firebase-bom:$google_firebasebom_version"),
+            analyticsKtx: ("com.google.firebase:firebase-analytics-ktx"),
+            crashlyticsKtx: ("com.google.firebase:firebase-crashlytics-ktx")
+    ]
+
+    test = [
+            junit: ("junit:junit:$test_junit_version"),
+            extJunit: ("androidx.test.ext:junit:$test_extjunit_version"),
+            espresso: ("androidx.test.espresso:espresso-core:$test_espresso_version")
+    ]
+}

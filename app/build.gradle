@@ -1,19 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
 }
 
+apply from: "$rootDir/dependencies.gradle"
+
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
 
     defaultConfig {
         applicationId "com.otnieldocs.googletemplate"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion min_sdk_version
+        targetSdkVersion targt_sdk_verson
         versionCode 1
         versionName "1.0"
 
@@ -33,22 +34,23 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation androidx.coreKtx
+    implementation androidx.appCompat
+    implementation google.material
+    implementation androidx.constraintLayout
 
-    implementation platform('com.google.firebase:firebase-bom:26.7.0')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx'
-    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation platform(google.firebaseBom)
+    implementation google.analyticsKtx
+    implementation google.crashlyticsKtx
 
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation test.junit
+    androidTestImplementation test.extJunit
+    androidTestImplementation test.espresso
 }
