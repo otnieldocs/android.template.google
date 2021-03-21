@@ -6,6 +6,7 @@ plugins {
 }
 
 apply from: "$rootDir/dependencies.gradle"
+apply from: "$rootDir/config.gradle"
 
 android {
     compileSdkVersion compile_sdk_version
@@ -37,6 +38,8 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    generateBuildConfig("$rootDir/config.properties", defaultConfig)
 }
 
 dependencies {
@@ -49,6 +52,7 @@ dependencies {
     implementation platform(google.firebaseBom)
     implementation google.analyticsKtx
     implementation google.crashlyticsKtx
+    implementation google.remoteConfigKtx
 
     testImplementation test.junit
     androidTestImplementation test.extJunit

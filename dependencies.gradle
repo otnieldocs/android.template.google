@@ -9,7 +9,8 @@ ext {
             material: ("com.google.android.material:material:$google_material_version"),
             firebaseBom: ("com.google.firebase:firebase-bom:$google_firebasebom_version"),
             analyticsKtx: ("com.google.firebase:firebase-analytics-ktx"),
-            crashlyticsKtx: ("com.google.firebase:firebase-crashlytics-ktx")
+            crashlyticsKtx: ("com.google.firebase:firebase-crashlytics-ktx"),
+            remoteConfigKtx: ("com.google.firebase:firebase-config-ktx")
     ]
 
     test = [

@@ -1,4 +1,4 @@
-# Androui Control
+# Android Template Google Compliance
 
 ![](https://img.shields.io/badge/version-0.0.1-blue.svg) ![](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 
