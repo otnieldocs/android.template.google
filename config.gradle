@@ -10,7 +10,13 @@ ext.generateBuildConfig = { filename, config ->
         file(filename).withInputStream { properties.load(it) }
 
         for (property in properties) {
-            config.buildConfigField "String", "${property.key.toString()}", "${property.value.toString()}"
+            def configValue = property.value.toString()
+
+            if (configValue.isInteger()) {
+                config.buildConfigField "Integer", "${property.key.toString()}", "${configValue.toLong()}"
+            } else {
+                config.buildConfigField "String", "${property.key.toString()}", "${property.value.toString()}"
+            }
         }
 
     } catch (FileNotFoundException e) {

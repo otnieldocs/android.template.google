@@ -43,6 +43,9 @@ android {
 }
 
 dependencies {
+    implementation jetbrain.kotlinStdLib
+    implementation jetbrain.kotlinReflect
+    implementation jetbrain.kotlinStdlibJdk
 
     implementation androidx.coreKtx
     implementation androidx.appCompat

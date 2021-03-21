@@ -1,4 +1,10 @@
 ext {
+    jetbrain = [
+            kotlinStdLib: ("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"),
+            kotlinReflect: ("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
+            kotlinStdlibJdk: ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
+    ]
+
     androidx = [
             coreKtx: ("androidx.core:core-ktx:$androidx_corektx_version"),
             appCompat: ("androidx.appcompat:appcompat:$androidx_appcompat_version"),
