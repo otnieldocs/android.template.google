@@ -10,8 +10,14 @@ object RemoteConfigCfg {
 
     fun build() {
         val remoteConfig = getConfig()
+
+        // set cache time to 0 if in debug mode
+        val cacheExpiration = if (BuildConfig.DEBUG.not()) {
+            BuildConfig.REMOTE_CONFIG_MINIMUM_FETCH_INTERVAL_IN_SECOND.toLong()
+        } else 0
+
         val configSettings = remoteConfigSettings {
-            minimumFetchIntervalInSeconds = BuildConfig.REMOTE_CONFIG_MINIMUM_FETCH_INTERVAL_IN_SECOND.toLong()
+            minimumFetchIntervalInSeconds = cacheExpiration
         }
 
         remoteConfig.setConfigSettingsAsync(configSettings)

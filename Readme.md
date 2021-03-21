@@ -12,7 +12,7 @@ Rename google-services.json.example to google-services.json, and then replace it
 ## Important Notes
 - Use jetpack data binding instead of kotlin synthetic.
 - Use firebase crashlytics
-- TODO: setup feature flag
+- INPROGRESS: setup feature flag
 - TODO: setup deeplink
 - TODO: setup push notification
 - TODO: setup a/b test
