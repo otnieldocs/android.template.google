@@ -2,17 +2,17 @@ package com.otnieldocs.googletemplate.config
 
 import android.net.Uri
 import android.util.Log
+import com.otnieldocs.common.DeepLink
 
 object DeepLinkCfg {
     fun build(data: Uri?) {
-        when(getPage(data)) {
-            // todo : replace "home" string with actual module name
-            "home" -> Log.d("ROUTE_CONFIG", "Visit home page")
-            else -> Log.d("ROUTE_CONFIG", "Incompatible deeplink route format")
-        }
+        DeepLink()
+            .addRoute("home") {
+                Log.d("ROUTE_CONFIG", "Visit home")
+            }
+            .addRoute("login") {
+                Log.d("ROUTE_CONFIG", "Visit login")
+            }
+            .build(data)
     }
-
-    private fun getPage(data: Uri?) = data?.getQueryParameter(KEY_PAGE) ?: ""
-
-    private const val KEY_PAGE = "page"
 }
