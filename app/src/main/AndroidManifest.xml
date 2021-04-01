@@ -19,26 +19,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- example to use deeplink for uri http://www.example.com/gizmos -->
-            <intent-filter android:label="filter_view_http_gizmos">
+            <!-- example to use deeplink for uri http://www.example.com -->
+            <intent-filter android:label="@string/app_main_deeplink_httpfilter">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
-                <data android:scheme="http"
-                    android:host="www.example.com"
-                    android:pathPrefix="/gizmos" />
+                <!-- Accepts URIs that begin with "http://www.example.com/deeplink” -->
+                <data android:scheme="@string/app_main_deeplink_httpscheme"
+                    android:host="@string/app_main_deeplink_httphost"
+                    android:pathPrefix="@string/app_main_deeplink_httpprefix" />
                 <!-- note that the leading "/" is required for pathPrefix-->
             </intent-filter>
 
-            <!-- example to use deeplink for uri example://gizmos -->
-            <intent-filter android:label="filter_view_example_gizmos">
+            <!-- example to use deeplink for uri app://deeplink -->
+            <intent-filter android:label="@string/app_main_deeplink_urifilter">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "example://gizmos” -->
-                <data android:scheme="example"
-                    android:host="gizmos" />
+                <!-- Accepts URIs that begin with "app://deeplink” -->
+                <data android:scheme="@string/app_main_deeplink_urischeme"
+                    android:host="@string/app_main_deeplink_urihost"
+                    android:pathPrefix="@string/app_main_deeplink_uriprefix" />
             </intent-filter>
         </activity>
     </application>

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">android.template.google</string>
+
+    <string name="app_main_deeplink_httpfilter">filter_view_http</string>
+    <string name="app_main_deeplink_httpscheme">http</string>
+    <string name="app_main_deeplink_httphost">www.example.com/deeplink</string>
+    <string name="app_main_deeplink_httpprefix">/param</string>
+
+    <string name="app_main_deeplink_urifilter">filter_view_http</string>
+    <string name="app_main_deeplink_urischeme">app</string>
+    <string name="app_main_deeplink_urihost">deeplink</string>
+    <string name="app_main_deeplink_uriprefix">/param</string>
 </resources>

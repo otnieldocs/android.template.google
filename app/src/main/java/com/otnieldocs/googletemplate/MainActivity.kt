@@ -3,16 +3,17 @@ package com.otnieldocs.googletemplate
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.otnieldocs.googletemplate.config.DeepLinkCfg
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        DeepLinkCfg.build(intent?.data)
 
         Firebase.remoteConfig.fetchAndActivate().addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
