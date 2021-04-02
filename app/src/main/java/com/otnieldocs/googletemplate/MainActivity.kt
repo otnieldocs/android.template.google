@@ -1,7 +1,6 @@
 package com.otnieldocs.googletemplate
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.ktx.Firebase
@@ -10,9 +9,11 @@ import com.otnieldocs.appcontract.AppNavigation
 import com.otnieldocs.appcontract.dto.AppHomeScreenArgDto
 import com.otnieldocs.appcontract.dto.AppLoginScreenArgDto
 import com.otnieldocs.common.DeepLink
+import com.otnieldocs.googletemplate.AppConstant.FLAG_APP_HOME
+import com.otnieldocs.googletemplate.AppConstant.FLAG_APP_LOGIN
+import com.otnieldocs.googletemplate.AppConstant.PAGE_HOME
+import com.otnieldocs.googletemplate.AppConstant.PAGE_LOGIN
 import com.otnieldocs.googletemplate.config.FeatureFlagCfg
-import com.otnieldocs.googletemplate.config.FeatureFlagCfg.FLAG_APP_HOME
-import com.otnieldocs.googletemplate.config.FeatureFlagCfg.FLAG_APP_LOGIN
 
 class MainActivity : AppCompatActivity(), AppNavigation {
 
@@ -20,16 +21,17 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // todo: use view flipper to show loading screen
         FeatureFlagCfg.build(this) { featureFlags ->
             val tv = findViewById<TextView>(R.id.simple_textview)
             tv.text = Firebase.remoteConfig.getBoolean(FLAG_APP_HOME).toString()
 
-            DeepLink().addRoute("home") {
+            DeepLink().addRoute(PAGE_HOME) {
                 toHomeScreen(
                     featureFlags[FLAG_APP_HOME] ?: true,
                     AppHomeScreenArgDto()
                 )
-            }.addRoute("login") {
+            }.addRoute(PAGE_LOGIN) {
                 toLoginScreen(
                     featureFlags[FLAG_APP_LOGIN] ?: true,
                     AppLoginScreenArgDto()
