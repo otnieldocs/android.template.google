@@ -49,17 +49,19 @@ dependencies {
 
     implementation androidx.coreKtx
     implementation androidx.appCompat
-    implementation google.material
     implementation androidx.constraintLayout
+    implementation androidx.preference
 
     implementation platform(google.firebaseBom)
     implementation google.analyticsKtx
     implementation google.crashlyticsKtx
     implementation google.remoteConfigKtx
+    implementation google.material
 
     testImplementation test.junit
     androidTestImplementation test.extJunit
     androidTestImplementation test.espresso
 
     implementation project(":common")
+    implementation project(":app-contract")
 }

@@ -1,7 +1,6 @@
 package com.otnieldocs.common
 
 import android.net.Uri
-import kotlin.reflect.KFunction
 
 class DeepLink {
     private val routeMap = mutableMapOf<String, (()->Unit)?>()

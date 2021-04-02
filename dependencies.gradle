@@ -8,7 +8,8 @@ ext {
     androidx = [
             coreKtx: ("androidx.core:core-ktx:$androidx_corektx_version"),
             appCompat: ("androidx.appcompat:appcompat:$androidx_appcompat_version"),
-            constraintLayout: ("androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version")
+            constraintLayout: ("androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"),
+            preference: ("androidx.preference:preference:$androidx_preference_version")
     ]
 
     google = [
