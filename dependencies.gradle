@@ -21,6 +21,16 @@ ext {
             remoteConfigKtx: ("com.google.firebase:firebase-config-ktx")
     ]
 
+    dagger = [
+            core: ("com.google.dagger:dagger:$version_dagger"),
+            android: ("com.google.dagger:dagger-android:$version_dagger"),
+            support: ("com.google.dagger:dagger-android-support:$version_dagger"),
+            compiler: ("com.google.dagger:dagger-compiler:$version_dagger"),
+            androidProcessor: ("com.google.dagger:dagger-android-processor:$version_dagger"),
+            assistedInject: ("com.squareup.inject:assisted-inject-annotations-dagger2:$version_dagger_assisted"),
+            assistedInjectProcessor: ("com.squareup.inject:assisted-inject-processor-dagger2:$version_dagger_assisted")
+    ]
+
     test = [
             junit: ("junit:junit:$test_junit_version"),
             extJunit: ("androidx.test.ext:junit:$test_extjunit_version"),

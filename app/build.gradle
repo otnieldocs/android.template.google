@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
 }
@@ -58,6 +59,14 @@ dependencies {
     implementation google.crashlyticsKtx
     implementation google.remoteConfigKtx
     implementation google.material
+
+    implementation dagger.core
+    implementation dagger.android
+    implementation dagger.support
+    implementation dagger.assistedInject
+    kapt dagger.compiler
+    kapt dagger.androidProcessor
+    kapt dagger.assistedInjectProcessor
 
     testImplementation test.junit
     androidTestImplementation test.extJunit
