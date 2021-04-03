@@ -25,7 +25,7 @@ class AppModule {
         dataStore: DataStore<Preferences>
     ): AppPreference = AppPreference(dataStore)
 
-    // todo: provide AppDatabase
+    // todo: provide AppDatabase, will use Room for database
     @Provides
     @Singleton
     fun provideAppLocalDataSource(

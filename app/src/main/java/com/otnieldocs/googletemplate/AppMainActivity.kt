@@ -18,10 +18,18 @@ import com.otnieldocs.googletemplate.AppConstant.FLAG_APP_LOGIN
 import com.otnieldocs.googletemplate.AppConstant.PAGE_HOME
 import com.otnieldocs.googletemplate.AppConstant.PAGE_LOGIN
 import com.otnieldocs.googletemplate.config.FeatureFlagCfg
+import com.otnieldocs.googletemplate.repository.AppRepository
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), AppNavigation {
-    private val Context.dataStore:
-            DataStore<Preferences> by preferencesDataStore(APP_PREFERENCE_NAME)
+class AppMainActivity : AppCompatActivity(), HasAndroidInjector, AppNavigation {
+    @Inject
+    lateinit var supportInjector: DispatchingAndroidInjector<Any>
+
+    @Inject
+    lateinit var viewModel: AppMainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +74,6 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         }
     }
 
-    companion object {
-        private const val APP_PREFERENCE_NAME = "app_preference"
-    }
+    override fun androidInjector() = supportInjector
+
 }
