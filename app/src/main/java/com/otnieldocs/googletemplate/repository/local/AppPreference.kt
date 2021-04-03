@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class AppPreference(
+class AppPreference constructor(
     private val dataStore: DataStore<Preferences>
 ) {
     fun isEnabled(
