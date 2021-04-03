@@ -1,8 +1,12 @@
 package com.otnieldocs.googletemplate
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.otnieldocs.appcontract.AppNavigation
@@ -16,6 +20,8 @@ import com.otnieldocs.googletemplate.AppConstant.PAGE_LOGIN
 import com.otnieldocs.googletemplate.config.FeatureFlagCfg
 
 class MainActivity : AppCompatActivity(), AppNavigation {
+    private val Context.dataStore:
+            DataStore<Preferences> by preferencesDataStore(APP_PREFERENCE_NAME)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,5 +64,9 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         } else {
             // todo: show have no permission
         }
+    }
+
+    companion object {
+        private const val APP_PREFERENCE_NAME = "app_preference"
     }
 }

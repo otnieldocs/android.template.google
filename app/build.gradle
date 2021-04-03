@@ -51,6 +51,7 @@ dependencies {
     implementation androidx.appCompat
     implementation androidx.constraintLayout
     implementation androidx.preference
+    implementation androidx.datastorePreference
 
     implementation platform(google.firebaseBom)
     implementation google.analyticsKtx
