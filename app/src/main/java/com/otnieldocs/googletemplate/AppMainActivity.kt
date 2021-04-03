@@ -1,8 +1,12 @@
 package com.otnieldocs.googletemplate
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.otnieldocs.appcontract.AppNavigation
@@ -14,8 +18,18 @@ import com.otnieldocs.googletemplate.AppConstant.FLAG_APP_LOGIN
 import com.otnieldocs.googletemplate.AppConstant.PAGE_HOME
 import com.otnieldocs.googletemplate.AppConstant.PAGE_LOGIN
 import com.otnieldocs.googletemplate.config.FeatureFlagCfg
+import com.otnieldocs.googletemplate.repository.AppRepository
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), AppNavigation {
+class AppMainActivity : AppCompatActivity(), HasAndroidInjector, AppNavigation {
+    @Inject
+    lateinit var supportInjector: DispatchingAndroidInjector<Any>
+
+    @Inject
+    lateinit var viewModel: AppMainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,4 +73,7 @@ class MainActivity : AppCompatActivity(), AppNavigation {
             // todo: show have no permission
         }
     }
+
+    override fun androidInjector() = supportInjector
+
 }
